@@ -4,8 +4,7 @@ backend:
   branch: master
   base_url: https://decap-cms-oauth.xspeedup.com
   auth_endpoint: /auth
-  # 临时使用测试模式（无需认证即可编辑，仅用于本地调试）
-  # 线上部署后请替换为正式的 OAuth 配置
+  token_endpoint: https://decap-cms-oauth.xspeedup.com/callback
 
 local_backend: false
 
