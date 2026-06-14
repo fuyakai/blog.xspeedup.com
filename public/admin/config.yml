@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: fuyakai/blog.xspeedup.com
-  branch: main
+  branch: master
   base_url: https://decap-cms-oauth.xspeedup.com
   auth_endpoint: /auth
   # 临时使用测试模式（无需认证即可编辑，仅用于本地调试）
