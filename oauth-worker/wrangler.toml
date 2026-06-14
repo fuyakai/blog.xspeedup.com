@@ -1,0 +1,5 @@
+name = "decap-cms-oauth"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# 部署后绑定路由: decap-cms-oauth.xspeedup.com
