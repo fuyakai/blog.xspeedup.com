@@ -75,4 +75,12 @@ collections:
       - { label: "分类", name: "categories", widget: "list", required: false, default: ["未分类"] }
       - { label: "置顶", name: "top", widget: "number", required: false, default: 0, value_type: "int", hint: "数字越大越靠前，0 为不置顶" }
       - { label: "加密密码", name: "password", widget: "string", required: false, hint: "设置后文章需要密码才能查看，留空则不加密" }
+      - label: "加密提示"
+        name: "encrypt"
+        widget: "object"
+        required: false
+        hint: "设置密码后，输入密码前的提示信息"
+        fields:
+          - { label: "提示文字", name: "description", widget: "string", required: false, default: "这是一篇被加密的文章哟", hint: "例如：请关注公众号XXX获取密码" }
+          - { label: "输入框提示", name: "placeholder", widget: "string", required: false, default: "输入密码", hint: "密码输入框的占位文字" }
       - { label: "正文", name: "body", widget: "markdown" }
