@@ -1,6 +1,6 @@
 # 关于江哥
 
-![江哥的个人博客](https://blog.xspeedup.com/logo.png "江哥的个人博客")
+![江哥的个人博客](https://blog.xspeedup.com/logo.png =500*500 "江哥的个人博客")
 
 你好，很高兴你能来到我的个人博客。
 
