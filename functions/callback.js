@@ -36,13 +36,12 @@ export async function onRequest(context) {
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>授权中...</title></head><body>
 <script>
 (function() {
-  var data = JSON.stringify({token: "${accessToken}", provider: "github"});
+  var data = {token: "${accessToken}", provider: "github"};
   var origin = window.location.origin;
   if (window.opener) {
     window.opener.postMessage(data, origin);
     window.close();
   } else {
-    // 降级：重定向到 CMS 后台
     window.location.href = origin + "/admin/";
   }
 })();
