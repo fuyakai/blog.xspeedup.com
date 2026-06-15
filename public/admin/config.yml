@@ -33,6 +33,31 @@ collections:
           - { label: "作者", name: "author", widget: "string" }
           - { label: "站点描述", name: "description", widget: "string" }
           - { label: "Logo", name: "logo", widget: "string", hint: "例如 /favicon.svg，先把图片放到 public/ 目录下" }
+      - name: "about"
+        label: "关于页面"
+        file: "README.md"
+        fields:
+          - { label: "页面内容", name: "body", widget: "markdown" }
+      - name: "links"
+        label: "友情链接"
+        file: "src/data/links.json"
+        fields:
+          - label: "链接分组"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "展示类型", name: "groupType", widget: "select", options: ["primary", "normal", "simple"], default: "normal" }
+              - { label: "分组名称", name: "groupName", widget: "string" }
+              - { label: "分组描述", name: "groupDesc", widget: "string" }
+              - label: "链接列表"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "名称", name: "name", widget: "string" }
+                  - { label: "链接", name: "link", widget: "string" }
+                  - { label: "头像", name: "avatar", widget: "string", hint: "图片URL，可直接粘贴" }
+                  - { label: "描述", name: "descr", widget: "string" }
+                  - { label: "截图", name: "siteshot", widget: "string", required: false, hint: "网站截图URL，留空自动生成" }
 
   - name: "blog"
     label: "博客文章"
