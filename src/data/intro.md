@@ -1,4 +1,5 @@
-- This is the Antares theme
-A blog template based on Astro
-- [**GitHub Repository**](https://github.com/coderxi1/astro-antares)
-- [**Author's Blog**](https://coderxi.com)
+江哥｜自学网页技术爱好者
+
+这里是我的私人杂记仓库，记录前端学习踩坑笔记、代码实操心得，也随手写下日常见闻、生活碎片。
+
+以文字留存成长，代码与烟火共存。
