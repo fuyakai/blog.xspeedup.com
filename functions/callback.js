@@ -32,18 +32,28 @@ export async function onRequest(context) {
 
   const accessToken = tokenData.access_token;
 
-  // 同域名，postMessage 零跨域问题
+  // Decap CMS 从 localStorage 读取 token
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>授权中...</title></head><body>
 <script>
 (function() {
-  var data = {token: "${accessToken}", provider: "github"};
-  var origin = window.location.origin;
+  var token = "${accessToken}";
+  var provider = "github";
+  // Decap CMS 存储格式
+  localStorage.setItem("netlify-cms-user", JSON.stringify({
+    token: token,
+    backendName: "github"
+  }));
+  // 同时设置 CMS 期望的格式
+  localStorage.setItem("decap-cms.user", JSON.stringify({
+    token: token,
+    backendName: "github"
+  }));
+  // 通知 CMS（如果还在监听）
   if (window.opener) {
-    window.opener.postMessage(data, origin);
-    window.close();
-  } else {
-    window.location.href = origin + "/admin/";
+    window.opener.postMessage({token: token, provider: provider}, window.location.origin);
   }
+  // 跳转到后台
+  window.location.href = "/admin/";
 })();
 </script>
 <p style="font-family:sans-serif;text-align:center;padding:40px;">登录成功！正在跳转...</p>
