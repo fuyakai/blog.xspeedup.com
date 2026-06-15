@@ -3,7 +3,7 @@ backend:
   repo: fuyakai/blog.xspeedup.com
   branch: master
   base_url: https://blog.xspeedup.com
-  auth_endpoint: /auth
+  auth_endpoint: /api/auth
 
 local_backend: false
 
