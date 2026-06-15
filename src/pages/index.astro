@@ -10,7 +10,7 @@ const pnCurr = 1, pnLast = Math.ceil(posts_all.length * 1.0 / pageSize)
 
 <BaseLayout asideCards={[
   'CardInfo',
-  ['CardMarkdown', { title: 'Hi there! 👋', content:'- This is the Antares theme  \nA blog template based on Astro  \n- [**GitHub Repository**](https://github.com/coderxi1/astro-antares)  \n- [**Author\'s Blog**](https://coderxi.com)'}],
+  ['CardMarkdown', { title: 'Hi there! 👋', content: (await import('@/data/intro.md?raw')).default }],
   'CardCategroies',
   'CardTagCloud',
   'CardSiteInfo',

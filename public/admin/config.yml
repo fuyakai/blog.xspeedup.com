@@ -33,6 +33,11 @@ collections:
           - { label: "作者", name: "author", widget: "string" }
           - { label: "站点描述", name: "description", widget: "string" }
           - { label: "Logo", name: "logo", widget: "string", hint: "例如 /favicon.svg，先把图片放到 public/ 目录下" }
+      - name: "intro"
+        label: "首页介绍"
+        file: "src/data/intro.md"
+        fields:
+          - { label: "介绍内容", name: "body", widget: "markdown" }
       - name: "about"
         label: "关于页面"
         file: "README.md"
