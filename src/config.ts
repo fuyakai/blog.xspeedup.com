@@ -1,15 +1,21 @@
-const FAVICON = '/favicon.svg'
+import siteSettings from './data/settings.json'
+import packageJson from '../package.json'
+import type { Format } from 'badge-maker'
+import friend_link_groups from './config.links'
+import moment from 'moment'
+
+const FAVICON = siteSettings.logo
 const BASE_URL = 'https://blog.xspeedup.com'
 const SITE_INFO = {
-  title: '江哥的个人博客',
-  author: '江哥',
+  title: siteSettings.title,
+  author: siteSettings.author,
   language: 'zh-CN',
-  description: '技术、生活与思考',
+  description: siteSettings.description,
   startYear: 2026,
   endYear: new Date().getFullYear(),
   email: '',
   baseUrl: BASE_URL + '/',
-  avatarUrl: BASE_URL + '/favicon.svg',
+  avatarUrl: BASE_URL + siteSettings.logo,
   siteshotUrl: BASE_URL + '/siteshot.png',
 }
 const POST_PGAE_SIZE = 5
@@ -24,16 +30,16 @@ const DEFAULT_FRONTMATTER = {
   }
 }
 const SIDEBAR_SETTINGS = {
-  name: "江哥的博客",
-  avatar: '/favicon.svg',
+  name: siteSettings.title,
+  avatar: siteSettings.logo,
 }
 const ASIDE_CARDS = {
   info: {
-    name: "江哥的博客",
+    name: siteSettings.title,
     link: '/',
-    avatar: '/favicon.svg',
+    avatar: siteSettings.logo,
     descriptionLines: [
-      "技术、生活与思考",
+      siteSettings.description,
       "基于 Astro + Antares 主题",
     ]
   }
@@ -136,10 +142,5 @@ export const FRIEND_LINK = {
 }
 
 //======================================
-;
-import packageJson from '../package.json'
-import type { Format } from 'badge-maker'
-import friend_link_groups from './config.links'
-import moment from 'moment'
 moment.locale(SITE_INFO.language)
 export { FAVICON, BASE_URL, SITE_INFO, POST_PGAE_SIZE, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS, SIDEBAR_SETTINGS }

@@ -19,6 +19,21 @@ logo_url: https://blog.xspeedup.com/favicon.svg
 locale: zh_Hans
 
 collections:
+  - name: "settings"
+    label: "站点设置"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "基本信息"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "站点标题", name: "title", widget: "string" }
+          - { label: "作者", name: "author", widget: "string" }
+          - { label: "站点描述", name: "description", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "string", hint: "例如 /favicon.svg，先把图片放到 public/ 目录下" }
+
   - name: "blog"
     label: "博客文章"
     folder: "posts"
