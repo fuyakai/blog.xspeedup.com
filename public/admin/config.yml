@@ -48,5 +48,6 @@ collections:
       - { label: "更新日期", name: "updatedDate", widget: "datetime", format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false, required: false }
       - { label: "标签", name: "tags", widget: "list", required: false, default: [] }
       - { label: "分类", name: "categories", widget: "list", required: false, default: ["未分类"] }
-      - { label: "置顶", name: "top", widget: "number", required: false, default: 0, value_type: "int" }
+      - { label: "置顶", name: "top", widget: "number", required: false, default: 0, value_type: "int", hint: "数字越大越靠前，0 为不置顶" }
+      - { label: "加密密码", name: "password", widget: "string", required: false, hint: "设置后文章需要密码才能查看，留空则不加密" }
       - { label: "正文", name: "body", widget: "markdown" }
