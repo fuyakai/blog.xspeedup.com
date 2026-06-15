@@ -9,23 +9,32 @@ import { ensuredCard, type EnsuredCardParams } from '@/components/AsideCards'
 import { Icon } from 'astro-icon/components'
 import Drawer from '@/components/widget/Drawer.astro'
 import SideBar from '@/components/SideBar.astro'
+
 const { language: lang, title: deafultTitle } = SITE_INFO
 
 type Props = {
-  frontmatter?: Props //for .mdx layout
+  frontmatter?: Props // for .mdx layout
 } & {
   subtitle?: string
   title?: string
   description?: string
   image?: string
-  asideOff?: boolean,
+  type?: 'website' | 'article'
+  publishDate?: string
+  updatedDate?: string
+  author?: string
+  asideOff?: boolean
   asideCards?: EnsuredCardParams[]
 }
 const {
   subtitle,
   title = subtitle ? `${subtitle} | ${deafultTitle}` : deafultTitle,
-  description = '',
+  description = SITE_INFO.description,
   image = '',
+  type = 'website',
+  publishDate,
+  updatedDate,
+  author = SITE_INFO.author,
   asideOff = false,
   asideCards
 } = Astro.props.frontmatter || Astro.props
@@ -34,7 +43,7 @@ const {
 <!DOCTYPE html>
 <html {lang}>
 <head>
-  <HeadFragment {title} {description} {image}/>
+  <HeadFragment {title} {description} {image} {type} {publishDate} {updatedDate} {author}/>
   <slot name="head"/>
 </head>
 <body class="flex flex-col bg-global text-textPrim font-sans h-screen w-screen of-x-hidden">
