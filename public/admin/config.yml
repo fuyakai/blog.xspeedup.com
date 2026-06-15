@@ -9,8 +9,8 @@ local_backend: false
 
 publish_mode: editorial_workflow
 
-media_folder: "src/assets"
-public_folder: "../../assets"
+media_folder: "public/assets"
+public_folder: "/assets"
 
 site_url: https://blog.xspeedup.com
 display_url: https://blog.xspeedup.com
@@ -21,15 +21,17 @@ locale: zh_Hans
 collections:
   - name: "blog"
     label: "博客文章"
-    folder: "src/content/blog"
+    folder: "posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: false
     fields:
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "描述", name: "description", widget: "string" }
-      - { label: "发布日期", name: "pubDate", widget: "datetime", format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false }
-      - { label: "更新日期", name: "updatedDate", widget: "datetime", required: false, format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false }
-      - { label: "封面图", name: "heroImage", widget: "image", required: false }
+      - { label: "描述", name: "description", widget: "string", required: false }
+      - { label: "发布日期", name: "publishDate", widget: "datetime", format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false, required: false }
+      - { label: "更新日期", name: "updatedDate", widget: "datetime", format: "MMM DD YYYY", date_format: "MMM DD YYYY", time_format: false, required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false, default: [] }
+      - { label: "分类", name: "categories", widget: "list", required: false, default: ["未分类"] }
+      - { label: "置顶", name: "top", widget: "number", required: false, default: 0, value_type: "int" }
       - { label: "正文", name: "body", widget: "markdown" }

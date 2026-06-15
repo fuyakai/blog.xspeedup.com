@@ -1,35 +1,26 @@
-// @ts-check
-
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig, fontProviders } from 'astro/config';
+import unocss from 'unocss/astro'
+import icon from "astro-icon";
+import pagefind from "astro-pagefind";
+import expressiveCode from 'astro-expressive-code';
+import { BASE_URL } from './src/config';
+import { remarkPlugins, rehypePlugins } from './plugins';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://blog.xspeedup.com',
-	integrations: [mdx(), sitemap()],
-	fonts: [
-		{
-			provider: fontProviders.local(),
-			name: 'Atkinson',
-			cssVariable: '--font-atkinson',
-			fallbacks: ['sans-serif'],
-			options: {
-				variants: [
-					{
-						src: ['./src/assets/fonts/atkinson-regular.woff'],
-						weight: 400,
-						style: 'normal',
-						display: 'swap',
-					},
-					{
-						src: ['./src/assets/fonts/atkinson-bold.woff'],
-						weight: 700,
-						style: 'normal',
-						display: 'swap',
-					},
-				],
-			},
-		},
-	],
+  site: 'https://blog.xspeedup.com',
+  integrations: [
+    expressiveCode(),
+    mdx(),
+    sitemap({ filter: page => ['/tags/','/categories/'].map(PATH=>page.startsWith(BASE_URL+PATH)).includes(false) }),
+    unocss({ injectReset: true, configFile: '/uno.config.ts' }),
+    icon(),
+    pagefind(),
+  ],
+  markdown: {
+    remarkPlugins,
+    rehypePlugins
+  }
 });
