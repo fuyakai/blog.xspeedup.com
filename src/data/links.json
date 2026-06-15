@@ -4,7 +4,14 @@
       "groupType": "normal",
       "groupName": "朋友们",
       "groupDesc": "欢迎交换友链",
-      "links": []
+      "links": [
+        {
+          "name": "江哥的博客",
+          "link": "https://blog.xspeedup.com/",
+          "avatar": "https://blog.xspeedup.com/logo.png",
+          "descr": "江哥的个人博客"
+        }
+      ]
     }
   ]
 }
